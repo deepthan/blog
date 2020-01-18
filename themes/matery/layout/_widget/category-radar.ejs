@@ -1,0 +1,222 @@
+<style type="text/css">
+  #category-radar {
+    width: 100%;
+    height: 360px;
+  }
+</style>
+
+<div class="container" data-aos="fade-up">
+  <div class="card">
+    <div id="category-radar" class="card-content"></div>
+  </div>
+</div>
+
+<% 
+
+var posts = site.posts;
+var postEdit = [];
+
+posts.map(function (post) {
+  var category2 = "";
+  post.categories.forEach(function (category) {
+    category2 = category.name
+  });
+  postEdit.push({ 'name3': post.title, "path": post.path, "categories": category2 });
+});
+
+postEdit.forEach(post => { %>
+  <div>
+
+    <a href="<%- url_for(post.path) %>">
+
+      <%- post.name3 %>
+
+        <%- post.categories %>
+    </a>
+  </div>
+
+  <% }) %>
+
+
+
+    <script type="text/javascript" src="/libs/echarts/echarts.min.js"></script>
+    <script type="text/javascript">
+      let radarChart = echarts.init(document.getElementById('category-radar'));
+
+    <%
+        var categories = site.categories;
+      var posts = site.posts;
+      var postEdit = [];
+
+      var categoriesFormate = categories.map(function (i) {
+        return i.name.split('/')
+      })
+      var menus = [];
+      categoriesFormate.forEach(function (i) {
+        var o1 = {},
+          o2 = {},
+          o3 = {};
+
+        if (i[2]) {
+          o3 = {
+            name: i[2],
+            chidren: [],
+          }
+        }
+        if (i[1]) {
+          o2 = {
+            name: i[1],
+            chidren: [],
+          }
+          if (i[2]) {
+            o2.chidren.push(o3)
+          }
+        }
+        o1 = {
+          name: i[0],
+          chidren: [],
+        }
+        if (i[1]) {
+          o1.chidren.push(o2)
+        }
+
+        var m3Equal = false;
+        var m2Equal = false;
+        var mEqual = false;
+
+        menus.forEach(function (m) {
+          if (m.name === i[0]) {
+            mEqual = true;
+            m.chidren.forEach(function (m2) {
+              if (i[1] && m2.name === i[1]) {
+                m2Equal = true;
+                m2.chidren.forEach(function (m3) {
+                  if (i[2] && m3.name === i[2]) {
+                    m3Equal = true;
+                  }
+                })
+                if (!m3Equal && i[2]) {
+                  m2.chidren.push(o3)
+                }
+              }
+            })
+            if (!m2Equal && i[1]) {
+              m.chidren.push(o2)
+            }
+          }
+        })
+        if (!mEqual) {
+          menus.push(o1)
+        }
+      })
+
+      posts.map(function (post) {
+        var categoryName = "";
+        post.categories.forEach(function (category) {
+          categoryName = category.name
+        });
+        postEdit.push({ 'name3': post.title, "path": post.path, "categories": categoryName });
+      });
+
+      var inM1 = true,
+        inM2 = true,
+        inM3 = true;
+      postEdit.forEach(function (p) {
+        var cs = p.categories.split('/');
+        menus.forEach(function (m) {
+          // 一级菜单中匹配到
+          if (m.name == cs[0]) {
+            // 若文章还有二级分类
+            if (cs[1]) {
+              // 循环菜单二级分类
+              m.chidren.forEach(function (m2) {
+                // 如果匹配上
+                if (m2.name == cs[1]) {
+                  // 如果文章还有三级分类
+                  if (cs[2]) {
+                    // 循环三级分类匹配
+                    m2.chidren.forEach(function (m3) {
+                      if (m3.name == cs[2]) {
+                        m3.chidren.push(p);
+                      }
+                    })
+                    // 只有二级分类
+                  } else {
+                    m2.chidren.push(p);
+                  }
+                }
+              })
+              // 文章只有一级分类
+            } else {
+              m.chidren.push(p);
+            }
+          }
+        })
+      })
+
+
+
+      // Find the maximum and average values of the post categories.
+      var radarValueArr = [];
+      categories.some(function (category) {
+        radarValueArr.push(category.length);
+      });
+
+      var max = Math.max.apply(null, radarValueArr) + Math.min.apply(null, radarValueArr);
+
+      // Calculate the data needed for the radar chart.
+      var indicatorArr = [];
+      categories.map(function (category) {
+        indicatorArr.push({ 'name': category.name, 'max': max });
+      });
+
+      var indicatorData = JSON.stringify(indicatorArr);
+      var radarValueData = JSON.stringify(radarValueArr);
+      var postsString = JSON.stringify(postEdit);
+      var menus = JSON.stringify(menus); 
+
+    %>
+
+
+        console.log("categories",   <%- indicatorData %>)
+      console.log("postsString",   <%- postsString %>)
+      console.log("menus",   <%- menus %>)
+    
+
+
+      let option = {
+        title: {
+          left: 'center',
+          text: '<%= __("categoryRadarTitle")  %>',
+          textStyle: {
+            fontWeight: 500,
+            fontSize: 22
+          }
+        },
+        tooltip: {},
+        radar: {
+          name: {
+            textStyle: {
+              color: '#3C4858'
+            }
+          },
+          indicator: <%- indicatorData %>,
+          nameGap: 5,
+          center: ['50%', '55%'],
+          radius: '66%'
+        },
+        series: [{
+          type: 'radar',
+          color: ['#3ecf8e'],
+          itemStyle: { normal: { areaStyle: { type: 'default' } } },
+          data: [
+            {
+              value: <%- radarValueData %>,
+              name: '<%= __("categoryNumber") %>'
+            }
+          ]
+        }]
+      };
+
+      radarChart.setOption(option);
+    </script>
