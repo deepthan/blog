@@ -1,3 +1,8 @@
+<!--
+ * @file: 
+ * @author: linkun.he
+ * @Date: 2020-01-19 08:43:36
+ -->
 <%
     var menuMap = new Map();
     menuMap.set("Index", "首页");
@@ -8,11 +13,10 @@
     menuMap.set("Friends", "友情链接");
 %>
 
-<a href="#" data-activates="mobile-nav" class="button-collapse"><i class="fa fa-navicon"></i></a>
-<ul class="right">
+<ul class="nav-right">
     <% Object.keys(theme.menu).forEach(function(key) { %>
-    <li class="hide-on-med-and-down">
-        <a href="<%- theme.menu[key].url %>" class="waves-effect waves-light">
+    <li class="nav-item-wrap">
+        <a href="<%- theme.menu[key].url %>" class="nav-item">
             <% if (theme.menu[key].icon && theme.menu[key].icon.length > 0) { %>
             <i class="fa <%- theme.menu[key].icon %>"></i>
             <% } %>
@@ -21,11 +25,25 @@
     </li>
     <% }); %>
     <li>
-        <a id="toggleSearch" class="waves-effect waves-light">
+        <a id="toggleSearch" class="nav-item">
             <i id="searchIcon" class="mdi-action-search" title="<%= __('search') %>"></i>
         </a>
     </li>
 
 </ul>
 
-<%- partial('_partial/mobile-nav') %>
+<style>
+  .nav-right{
+    height: 64px;
+    line-height: 64px;
+    margin: 0;
+    overflow: hidden;
+  }
+  .nav-right li {
+    display: inline-block;
+    margin-right: 20px;
+  }
+  .nav-right .nav-item{
+    color: #fff;
+  }
+</style>

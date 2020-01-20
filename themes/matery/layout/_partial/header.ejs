@@ -1,21 +1,50 @@
-<header class="navbar-fixed">
-    <nav id="headNav" class="bg-color nav-transparent">
-        <div id="navContainer" class="container">
-            <div class="nav-wrapper">
-                <div class="brand-logo">
-                    <a href="<%- url_for() %>" class="waves-effect waves-light">
-                        <% if (theme.logo !== undefined && theme.logo.length > 0) { %>
-                        <img src="<%= theme.logo %>" class="logo-img hide-on-small-only">
-                        <% } %>
-                        <span class="logo-span"><%- config.title %></span>
-                    </a>
-                </div>
-                <%- partial('_partial/navigation') %>
-            </div>
-        </div>
+<!--
+ * @file: 
+ * @author: linkun.he
+ * @Date: 2020-01-19 08:43:36
+ -->
 
-        <% if (theme.githubLink && theme.githubLink.enable) { %>
-        <%- partial('_partial/github-link') %>
-        <% } %>
-    </nav>
+
+<header class="header">
+    <a href="<%- url_for() %>" class="logo-wrap">
+      <% if (theme.logo !== undefined && theme.logo.length > 0) { %>
+      <img src="<%= theme.logo %>" class="logo-img hide-on-small-only">
+      <% } %>
+      <span class="title"><%- config.title %></span>
+    </a>
+
+    <div class="nav-wrap">
+      <%- partial('_partial/navigation') %>
+    </div>
+    <% if (theme.githubLink && theme.githubLink.enable) { %>
+      <%- partial('_partial/github-link') %>
+    <% } %>
 </header>
+
+<style>
+  .header{
+    background-image: url('../medias/body-bg.png');
+    background-color: #758a99;
+    padding: 0 26px;
+    width: 100%;
+    height: 64px;
+    padding-right: 80px;
+  }
+  .logo-wrap{
+    line-height: 64px;
+  }
+  .logo-wrap img{
+    width: 40px;
+    height: 40px;
+    vertical-align: middle;
+    border-radius: 20px;
+    margin-top: -9px;
+  }
+  .logo-wrap .title{
+    margin-left: 10px;
+    font-size: 20px;
+  }
+  .nav-wrap{
+    float: right;
+  }
+</style>
