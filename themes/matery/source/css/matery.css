@@ -624,7 +624,7 @@ header .go-back i {
 
 /*文章列表卡片各样式*/
 #articles {
-    margin-top: 10px;
+    margin-top: 50px;
     margin-bottom: 10px;
 }
 
@@ -646,12 +646,27 @@ article a:hover {
 }
 
 article .card {
-    border-radius: 10px;
+  border-radius: 10px;
+  background: rgba(255,255,255, .2);
 }
 
-article .card-image img {
-    height: 220px;
-    border-radius: 0.3rem;
+article .card-image .title {
+  height: 60px;
+  line-height: 60px;
+  font-size: 20px;
+  margin-bottom: -20px;
+  color: #333;
+  border-radius: 0.3rem;
+  padding-left:18px;
+  font-weight: bold;
+}
+
+article .card-image a:hover{
+  text-decoration: none;
+}
+.publish-info,
+.publish-info a{
+  color: #aaa;
 }
 
 article .tag-image img {
@@ -960,11 +975,13 @@ table tr:nth-child(2n), thead {
 }
 
 .chip-container {
-    margin-top: -60px;
+    /* margin-top: -60px; */
+    margin-bottom: -20px;
 }
 
 .chip-container .tag-title {
     margin-bottom: 10px;
+    margin-top: 10px;
     color: #3C4858;
     font-size: 1.75rem;
     font-weight: 400;
@@ -972,7 +989,6 @@ table tr:nth-child(2n), thead {
 
 .chip-container .tag-chips {
     margin: 1rem auto 0.5rem;
-    max-width: 850px;
     text-align: center;
 }
 

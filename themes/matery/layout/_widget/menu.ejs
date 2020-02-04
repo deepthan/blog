@@ -121,12 +121,8 @@
 </script>
 
 <script>
-function firClick(e){
-  // console.log("e", e);
-}
-
 window.onload = function(){
-  $(".menu-node").click(function(){
+  $(".menu-node").click(function(event){
     var chindMenuNode = $(this).next();
     if(chindMenuNode.hasClass('menu-hidden')){
       chindMenuNode.removeClass('menu-hidden');
@@ -154,8 +150,13 @@ window.onload = function(){
 <ul class="menu-wrap">
   <!-- 一级菜单start -->
   <% menus.forEach(function(fir){ %>
-    <li class="menu-node" onclick="firClick(  <%= JSON.stringify(fir) %>  )">
-      <%= fir.name %> 
+    <li class="menu-node" >
+      <% if(fir.path){ %> 
+        <a href="<%= url_for(fir.path) %>" ><%= fir.name %> </a>
+      <% }else{ %>
+        <%= fir.name %> 
+      <% } %>
+
 
       <% if(!fir.path){ %> 
         <i  class="arrow-down"></i>
@@ -166,10 +167,16 @@ window.onload = function(){
     <% if(fir.children && fir.children.length>0){ %> 
       <ul class="sec-menu-wrap menu-hidden">
         <% fir.children.forEach(function(sec){ %>
-          <li class="menu-node"> 
-            <div class="name-wrap">
-              <%= sec.name %> 
-            </div>
+          <li class="menu-node" > 
+            <% if(sec.path){ %> 
+              <div class="name-wrap">
+                <a href="<%= url_for(sec.path) %>" ><%= sec.name %> </a>
+              </div>
+            <% }else{ %>
+              <div class="name-wrap">
+                <%= sec.name %> 
+              </div>
+            <% } %>
             
             <% if(!sec.path){ %> 
               <i  class="arrow-down"></i>
@@ -181,10 +188,17 @@ window.onload = function(){
           <% if(sec.children && sec.children.length>0){ %> 
             <ul class="third-menu-wrap menu-hidden">
               <% sec.children.forEach(function(third){ %>
-                <li class="menu-node"> 
-                  <div class="name-wrap">
-                    <%= third.name %> 
-                  </div>
+                <li class="menu-node" > 
+                  <% if(third.path){ %> 
+                    <div class="name-wrap">
+                      <a href="<%= url_for(third.path) %>" ><%= third.name %> </a>
+                    </div>
+                  <% }else{ %>
+                    <div class="name-wrap">
+                      <%= third.name %> 
+                    </div>
+                  <% } %>
+
                   <% if(!third.path){ %> 
                     <i  class="arrow-down"></i>
                   <% } %>
@@ -194,10 +208,17 @@ window.onload = function(){
                 <% if(third.children && third.children.length>0){ %> 
                   <ul class="fourth-menu-wrap menu-hidden">
                     <% third.children.forEach(function(fourth){ %>
-                      <li class="menu-node">
-                        <div class="name-wrap">
-                          <%= fourth.name %> 
-                        </div>
+                      <li class="menu-node" >
+                        <% if(fourth.path){ %> 
+                          <div class="name-wrap">
+                            <a href="<%= url_for(fourth.path) %>" ><%= fourth.name %> </a>
+                          </div>
+                        <% }else{ %>
+                          <div class="name-wrap">
+                            <%= fourth.name %> 
+                          </div>
+                        <% } %>
+
                         <% if(!fourth.path){ %> 
                           <i  class="arrow-down"></i>
                         <% } %>
@@ -237,6 +258,12 @@ window.onload = function(){
     background-image: url('../medias/body-bg.png') ;
     font-weight: bold;
     font-family:   KaiTi, LiSu,  KaiTi, STZhongsong,   STSong,  FangSong,  SimSun,  SimSun,TChinese, "Microsoft YaHei";
+  }
+  .menu-node a{
+    color: #333;
+    display: inline-block;
+    width: 100%;
+    height: 100%;
   }
 
   .menu-node:hover{
