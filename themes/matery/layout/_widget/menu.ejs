@@ -121,8 +121,17 @@
 </script>
 
 <script>
+<<<<<<< HEAD
 window.onload = function(){
   $(".menu-node").click(function(event){
+=======
+function firClick(e){
+  // console.log("e", e);
+}
+
+window.onload = function(){
+  $(".menu-node").click(function(){
+>>>>>>> 097ecafebaeddc6107831608e5a118017ad7435b
     var chindMenuNode = $(this).next();
     if(chindMenuNode.hasClass('menu-hidden')){
       chindMenuNode.removeClass('menu-hidden');
@@ -150,6 +159,7 @@ window.onload = function(){
 <ul class="menu-wrap">
   <!-- 一级菜单start -->
   <% menus.forEach(function(fir){ %>
+<<<<<<< HEAD
     <li class="menu-node" >
       <% if(fir.path){ %> 
         <a href="<%= url_for(fir.path) %>" ><%= fir.name %> </a>
@@ -157,6 +167,10 @@ window.onload = function(){
         <%= fir.name %> 
       <% } %>
 
+=======
+    <li class="menu-node" onclick="firClick(  <%= JSON.stringify(fir) %>  )">
+      <%= fir.name %> 
+>>>>>>> 097ecafebaeddc6107831608e5a118017ad7435b
 
       <% if(!fir.path){ %> 
         <i  class="arrow-down"></i>
@@ -167,6 +181,7 @@ window.onload = function(){
     <% if(fir.children && fir.children.length>0){ %> 
       <ul class="sec-menu-wrap menu-hidden">
         <% fir.children.forEach(function(sec){ %>
+<<<<<<< HEAD
           <li class="menu-node" > 
             <% if(sec.path){ %> 
               <div class="name-wrap">
@@ -177,6 +192,12 @@ window.onload = function(){
                 <%= sec.name %> 
               </div>
             <% } %>
+=======
+          <li class="menu-node"> 
+            <div class="name-wrap">
+              <%= sec.name %> 
+            </div>
+>>>>>>> 097ecafebaeddc6107831608e5a118017ad7435b
             
             <% if(!sec.path){ %> 
               <i  class="arrow-down"></i>
@@ -188,6 +209,7 @@ window.onload = function(){
           <% if(sec.children && sec.children.length>0){ %> 
             <ul class="third-menu-wrap menu-hidden">
               <% sec.children.forEach(function(third){ %>
+<<<<<<< HEAD
                 <li class="menu-node" > 
                   <% if(third.path){ %> 
                     <div class="name-wrap">
@@ -199,6 +221,12 @@ window.onload = function(){
                     </div>
                   <% } %>
 
+=======
+                <li class="menu-node"> 
+                  <div class="name-wrap">
+                    <%= third.name %> 
+                  </div>
+>>>>>>> 097ecafebaeddc6107831608e5a118017ad7435b
                   <% if(!third.path){ %> 
                     <i  class="arrow-down"></i>
                   <% } %>
@@ -208,6 +236,7 @@ window.onload = function(){
                 <% if(third.children && third.children.length>0){ %> 
                   <ul class="fourth-menu-wrap menu-hidden">
                     <% third.children.forEach(function(fourth){ %>
+<<<<<<< HEAD
                       <li class="menu-node" >
                         <% if(fourth.path){ %> 
                           <div class="name-wrap">
@@ -219,6 +248,12 @@ window.onload = function(){
                           </div>
                         <% } %>
 
+=======
+                      <li class="menu-node">
+                        <div class="name-wrap">
+                          <%= fourth.name %> 
+                        </div>
+>>>>>>> 097ecafebaeddc6107831608e5a118017ad7435b
                         <% if(!fourth.path){ %> 
                           <i  class="arrow-down"></i>
                         <% } %>
@@ -259,12 +294,15 @@ window.onload = function(){
     font-weight: bold;
     font-family:   KaiTi, LiSu,  KaiTi, STZhongsong,   STSong,  FangSong,  SimSun,  SimSun,TChinese, "Microsoft YaHei";
   }
+<<<<<<< HEAD
   .menu-node a{
     color: #333;
     display: inline-block;
     width: 100%;
     height: 100%;
   }
+=======
+>>>>>>> 097ecafebaeddc6107831608e5a118017ad7435b
 
   .menu-node:hover{
     color: #000;

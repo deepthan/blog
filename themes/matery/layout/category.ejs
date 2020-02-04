@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <style>
   .left-wrap, 
   .right-wrap,
@@ -18,6 +19,10 @@
     <%- partial('_widget/menu') %>
   </div>
   <div class="right-wrap">
+=======
+<%- partial('_partial/bg-cover') %>
+
+>>>>>>> 097ecafebaeddc6107831608e5a118017ad7435b
   <main class="content">
 
     <%- partial('_widget/category-cloud') %>
@@ -40,7 +45,12 @@
           <div class="row tags-posts">
             <% page.posts.sort('date').reverse().forEach(post => { %>
               <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
+<<<<<<< HEAD
                 <div class="card" onclick="openArticle(<%= JSON.stringify(post.path) %>)">
+=======
+                <div class="card">
+                  <a href="<%- url_for(post.path) %>">
+>>>>>>> 097ecafebaeddc6107831608e5a118017ad7435b
                     <div class="card-image tag-image">
                       <% if (post.img) { %>
                         <img src="<%= post.img %>" class="responsive-img" alt="<%- post.title %>">
@@ -50,18 +60,30 @@
                                 var num = Math.abs(hashCode(post.title) % len);
                                 var featureimg = theme.featureImages[num];
                             %>
+<<<<<<< HEAD
                             <div class="title">
                                 <%- post.title %>
                             </div>
 
                             <% } %>
                     </div>
+=======
+                            <img src="<%= featureimg %>" class="responsive-img" alt="<%- post.title %>">
+                            <% } %>
+                              <span class="card-title"><%- post.title %></span>
+                    </div>
+                  </a>
+>>>>>>> 097ecafebaeddc6107831608e5a118017ad7435b
                   <div class="card-content article-content">
                     <div class="summary">
                       <% if (post.summary && post.summary.length > 0) { %>
                         <%- post.summary %>
                           <% } else { %>
+<<<<<<< HEAD
                             <%- strip_html(post.content).substring(0, 70) + '...' %>
+=======
+                            <%- strip_html(post.content).substring(0, 70) %>
+>>>>>>> 097ecafebaeddc6107831608e5a118017ad7435b
                               <% } %>
                     </div>
                     <div class="publish-info">
@@ -87,6 +109,18 @@
                     </div>
                   </div>
 
+<<<<<<< HEAD
+=======
+                  <% if (post.tags && post.tags.length) { %>
+                    <div class="card-action article-tags">
+                      <% post.tags.forEach(tag => { %>
+                        <a href="<%- url_for(tag.path) %>" target="_blank">
+                            <span class="chip bg-color"><%= tag.name %></span>
+                        </a>
+                        <% }); %>
+                    </div>
+                    <% } %>
+>>>>>>> 097ecafebaeddc6107831608e5a118017ad7435b
                 </div>
               </div>
               <% }); %>
@@ -96,7 +130,11 @@
 
   <% if (page.total > 1) { %>
     <%- partial('_partial/paging') %>
+<<<<<<< HEAD
       <% } %>
 
   </div>
 </div>
+=======
+      <% } %>
+>>>>>>> 097ecafebaeddc6107831608e5a118017ad7435b

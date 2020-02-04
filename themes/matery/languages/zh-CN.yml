@@ -17,7 +17,11 @@ search: 搜索
 searchTip: 请输入搜索的关键字
 postTagTitle: 文章标签
 postCategoryTitle: 文章分类
+<<<<<<< HEAD
 categoryRadarTitle: ''
+=======
+categoryRadarTitle: 文章分类雷达图
+>>>>>>> 097ecafebaeddc6107831608e5a118017ad7435b
 categoryNumber: 文章分类数量
 categoryEmptyTip: 你目前还没有对文章进行分类.
 postCharts: 文章统计图
