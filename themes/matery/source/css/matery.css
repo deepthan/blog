@@ -650,6 +650,7 @@ article .card {
   background: rgba(255,255,255, .2);
 }
 
+
 article .card-image .title {
   height: 60px;
   line-height: 60px;
@@ -685,6 +686,7 @@ article .article-content .summary {
 
 article .article-content .publish-author {
     float: right;
+    color: #4cbf30;
 }
 
 .publish-date .icon-date {
