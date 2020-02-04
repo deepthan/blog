@@ -6,46 +6,10 @@
 </style>
 
 <div class="container" data-aos="fade-up">
-<<<<<<< HEAD
   <div class="">
     <div id="category-radar" class="card-content"></div>
   </div>
 </div>
-=======
-  <div class="card">
-    <div id="category-radar" class="card-content"></div>
-  </div>
-</div>
-
-<% 
-
-var posts = site.posts;
-var postEdit = [];
-
-posts.map(function (post) {
-  var category2 = "";
-  post.categories.forEach(function (category) {
-    category2 = category.name
-  });
-  postEdit.push({ 'name3': post.title, "path": post.path, "categories": category2 });
-});
-
-postEdit.forEach(post => { %>
-  <div>
-
-    <a href="<%- url_for(post.path) %>">
-
-      <%- post.name3 %>
-
-        <%- post.categories %>
-    </a>
-  </div>
-
-  <% }) %>
-
-
-
->>>>>>> 097ecafebaeddc6107831608e5a118017ad7435b
     <script type="text/javascript" src="/libs/echarts/echarts.min.js"></script>
     <script type="text/javascript">
       let radarChart = echarts.init(document.getElementById('category-radar'));
@@ -194,11 +158,7 @@ postEdit.forEach(post => { %>
       let option = {
         title: {
           left: 'center',
-<<<<<<< HEAD
           text: '',
-=======
-          text: '<%= __("categoryRadarTitle")  %>',
->>>>>>> 097ecafebaeddc6107831608e5a118017ad7435b
           textStyle: {
             fontWeight: 500,
             fontSize: 22
