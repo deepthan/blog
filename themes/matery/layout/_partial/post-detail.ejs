@@ -1,68 +1,74 @@
 <!-- 文章内容详情 -->
+<style>
+.post-title{
+  width: 100%;
+  font-size: 28px;
+  text-align: center;
+  font-weight: bold;
+}
+.post-tips{
+  position: absolute;
+  right: 16px;
+  top: 6px;
+  color: #aaa;
+  font-size: 12px;
+  font-family: cursive;
+}
+.post-tips a{
+  color: #aaa;
+  font-size:12px;
+}
+#artDetail .post-info{
+  text-align: center;
+  margin-top: 5px;
+}
+#artDetail .post-info,
+#artDetail .post-info .post-category{
+  color: #777;
+}
+#artDetail .post-info .post-category:hover{
+  text-decoration: none;
+}
+.hr-wrap{
+  padding: 0 50px;
+}
+</style>
+
 <div id="artDetail">
-    <div class="card">
+    <div class="card" >
         <div class="card-content article-info">
-            <div class="row tag-cate">
-                <div class="col s7">
-                    <% if (page.tags && page.tags.length) { %>
-                    <div class="article-tag">
-                        <% page.tags.each(function(tag) { %>
-                            <a href="<%- url_for(tag.path) %>" target="_blank">
-                                <span class="chip bg-color"><%= tag.name %></span>
-                            </a>
-                        <% }); %>
-                    </div>
-                    <% } else { %>
-                          <div class="article-tag">
-                            <span class="chip bg-color"><%- __("notag")  %></span>
-                          </div>
-                    <% } %>
-                </div>
-                <div class="col s5 right-align">
-                    <% if (page.categories && page.categories.length > 0) { %>
-                    <div class="post-cate">
-                        <i class="fa fa-bookmark fa-fw icon-category"></i>
-                        <% page.categories.forEach(category => { %>
-                            <a href="<%- url_for(category.path) %>" class="post-category" target="_blank">
-                                <%- category.name %>
-                            </a>
-                        <% }); %>
-                    </div>
-                    <% } %>
-                </div>
+            <div class="post-title">
+                <%- page.title %>
             </div>
+
+            <ul class="post-tips">
+              <li>
+                <i class="fa fa-file-word-o fa-fw"></i>总字数：<%= wordcount(page.content) %>
+              </li>
+              <li>
+                <% if (theme.wordCount.min2read) { %>
+                  <i class="fa fa-clock-o fa-fw"></i>阅读时间：<%= min2read(page.content) %><%= __('分钟') %>
+                <% } %>
+              </li>
+              <li>
+                <i class="fa fa-eye fa-fw"></i>阅读次数：<span id="busuanzi_value_page_pv"></span>
+              </li>
+            </ul>
 
             <div class="post-info">
-                <div class="post-date info-break-policy">
-                    <i class="fa fa-calendar-minus-o fa-fw"></i><%- __('publishDate') %>:&nbsp;&nbsp;
-                    <%- date(page.date, 'YYYY-MM-DD') %>
-                </div>
-
-                <% if (theme.wordCount.enable) { %>
-                    <% if (theme.wordCount.postWordCount) { %>
-                    <div class="info-break-policy">
-                        <i class="fa fa-file-word-o fa-fw"></i><%- __('wordCount') %>:&nbsp;&nbsp;
-                        <%= wordcount(page.content) %>
-                    </div>
-                    <% } %>
-
-                    <% if (theme.wordCount.min2read) { %>
-                    <div class="info-break-policy">
-                        <i class="fa fa-clock-o fa-fw"></i><%- __('readTimes') %>:&nbsp;&nbsp;
-                        <%= min2read(page.content) %> <%= __('Minutes') %>
-                    </div>
-                    <% } %>
-                <% } %>
-				
-				<% if (theme.busuanziStatistics && theme.busuanziStatistics.enable) { %>
-                    <div id="busuanzi_container_page_pv" class="info-break-policy">
-                        <i class="fa fa-eye fa-fw"></i><%- __('readCount') %>:&nbsp;&nbsp;
-                        <span id="busuanzi_value_page_pv"></span>
-                    </div>
-				<% } %>
+                <% page.categories.forEach(category => { %>
+                  <a href="<%- url_for(category.path) %>" class="post-category" target="_blank">
+                      <%- category.name %>
+                  </a>
+                <% }); %>
+                  |
+                <%- date(page.date, 'YYYY-MM-DD') %>
+               
             </div>
         </div>
-        <hr class="clearfix">
+        <!-- <div class="hr-wrap">
+          <hr class="clearfix">
+        </div> -->
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <%- page.content %>

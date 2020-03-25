@@ -67,7 +67,7 @@
                 <div class="summary">
                   <% if (post.summary && post.summary.length > 0) { %> <%-
                   post.summary %> <% } else { %> <%-
-                  strip_html(post.content).substring(0, 70) %> <% } %>
+                  strip_html(post.content).substring(0, 70)+ '...' %> <% } %>
                 </div>
                 <div class="publish-info">
                   <span class="publish-date">

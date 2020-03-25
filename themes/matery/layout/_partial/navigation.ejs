@@ -6,7 +6,6 @@
 <%
     var menuMap = new Map();
     menuMap.set("Index", "首页");
-    menuMap.set("Tags", "标签");
     menuMap.set("Categories", "分类");
     menuMap.set("Archives", "归档");
     menuMap.set("About", "关于");
@@ -24,7 +23,7 @@
         </a>
     </li>
     <% }); %>
-    <li>
+    <li class="search">
         <a id="toggleSearch" class="nav-item">
             <i id="searchIcon" class="mdi-action-search" title="<%= __('search') %>"></i>
         </a>
@@ -42,8 +41,19 @@
   .nav-right li {
     display: inline-block;
     margin-right: 20px;
+    height: 64px;
+    margin-top: -25px;
+    line-height: 64px;
+    position: relative;
   }
   .nav-right .nav-item{
     color: #fff;
+  }
+  .search .nav-item{
+    position: absolute;
+    position: absolute;
+    top: 27px;
+    left: -3px;
+
   }
 </style>

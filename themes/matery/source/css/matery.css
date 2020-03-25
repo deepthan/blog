@@ -16,6 +16,7 @@ html {
   height: 100%;
   background-image: url('../medias/body-bg.png') ;
   background-color: #ffff;
+  font-family: cursive;
 }
 
 h1 {
@@ -139,6 +140,9 @@ mark {
     border-radius: 10px;
     -webkit-box-shadow: 0 15px 35px rgba(50, 50, 93, .1), 0 5px 15px rgba(0, 0, 0, .07) !important;
             box-shadow: 0 15px 35px rgba(50, 50, 93, .1), 0 5px 15px rgba(0, 0, 0, .07) !important;
+}
+.card a:hover{
+  text-decoration: none;
 }
 
 .card .card-image img {
@@ -800,16 +804,12 @@ article .article-tags .chip {
 }
 
 #artDetail .article-info {
-    padding: 25px 48px 30px 50px;
+    padding: 5px 48px 10px 50px;
     margin-bottom: 20px;
 }
 
 #artDetail .article-tag {
     float: left;
-}
-
-#artDetail .post-info {
-    float: right;
 }
 
 #artDetail .article-tag .chip {
@@ -850,6 +850,7 @@ article .article-tags .chip {
 
 #artDetail .article-card-content {
     padding: 0 15px 20px 18px;
+    font-family: auto;
 }
 
 @media only screen and (max-width: 601px) {
@@ -878,6 +879,7 @@ article .article-tags .chip {
 
 #artDetail .reprint {
     margin: 15px 0 5px 0;
+    font-family: cursive;
 }
 
 #artDetail .reprint .reprint-tip {
@@ -1051,9 +1053,11 @@ table tr:nth-child(2n), thead {
     position: relative;
     width: 80px;
     height: 80px;
-    margin: 10px 0 50px -20px;
-    padding: 21px 10px;
-    background-color: #ff5722;
+    line-height: 80px;
+    text-align: center;
+    margin: 10px 0 50px -63px;
+    padding: 21px;
+    background-color: #90B44B;
     color: #fff;
     font-size: 1.8rem;
     font-weight: 600;
@@ -1067,9 +1071,11 @@ table tr:nth-child(2n), thead {
     position: relative;
     width: 60px;
     height: 60px;
+    line-height: 60px;
+    text-align: center;
     margin: 10px 0 30px -10px;
     padding: 14px 16px;
-    background-color: #ef6c00;
+    background-color: #91AD70;
     color: #fff;
     font-size: 1.7rem;
     font-weight: 600;
@@ -1082,10 +1088,13 @@ table tr:nth-child(2n), thead {
 #cd-timeline .day {
     position: relative;
     padding: 8px 10px;
-    background-color: #ffa726;
+    background-color: #B5CAA0;
     color: #fff;
     font-size: 1.2rem;
     font-weight: 500;
+    line-height: 40px;
+    text-align: center;
+    left: 49%;
 }
 
 #cd-timeline {
@@ -1119,12 +1128,12 @@ table tr:nth-child(2n), thead {
     }
 
     #cd-timeline .year {
-        margin: 10px 0 50px -40px;
-        padding: 22px 11px;
+        margin: 10px 0 50px -63px;
+        padding: 21px ;
     }
 
     #cd-timeline .month {
-        margin: 10px 0 30px -30px;
+        margin: 10px 0 30px -48px;
         padding: 14px 16px;
     }
 }
@@ -1169,8 +1178,8 @@ table tr:nth-child(2n), thead {
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    -webkit-box-shadow: 0 0 0 4px #ffffff, inset 0 2px 0 rgba(0, 0, 0, 0.08), 0 3px 0 4px rgba(0, 0, 0, 0.05);
-            box-shadow: 0 0 0 4px #ffffff, inset 0 2px 0 rgba(0, 0, 0, 0.08), 0 3px 0 4px rgba(0, 0, 0, 0.05);
+    -webkit-box-shadow: 0 0 0 4px #ffe, inset 0 2px 0 rgba(0, 0, 0, 0.08), 0 3px 0 4px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 0 0 4px #ffe, inset 0 2px 0 rgba(0, 0, 0, 0.08), 0 3px 0 4px rgba(0, 0, 0, 0.05);
 }
 
 @media only screen and (min-width: 900px) {
@@ -1201,9 +1210,7 @@ table tr:nth-child(2n), thead {
     margin-left: 60px;
     padding: 0;
     border-radius: 5px;
-    background: #ffffff;
-    -webkit-box-shadow: 0 15px 35px rgba(50, 50, 93, .1), 0 5px 15px rgba(0, 0, 0, .07) !important;
-            box-shadow: 0 15px 35px rgba(50, 50, 93, .1), 0 5px 15px rgba(0, 0, 0, .07) !important;
+  
 }
 
 .cd-timeline-content::after {
@@ -1222,9 +1229,9 @@ table tr:nth-child(2n), thead {
     top: 18px !important;
     right: 100%;
     height: 0;
-    width: 14px;
-    margin-left: 2px;
-    margin-right: 2px;
+    width: 5px;
+    margin-left: 1px;
+    margin-right: 1px;
     border: 1px dashed #ffa726;
 }
 
