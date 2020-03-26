@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search> 
+  
+  
+    
+    <entry>
+      <title>vue watch用法</title>
+      <link href="/2019/01/22/vue/watch-yong-fa/"/>
+      <url>/2019/01/22/vue/watch-yong-fa/</url>
+      
+        <content type="html"><![CDATA[<blockquote><p>watch 是一个对象，它有键，有值</p></blockquote><ul><li><p>键：你要监控的东西</p></li><li><p>值：可以是三个内容</p><ul><li>函数： 当你监控的东西发生变化执行的函数，它有两个参数，一个是变化后的值，一个是旧的值。</li><li>或 函数名，它得用单引号包裹。</li><li>或 选项的对象<ul><li>handler： 其值是一个回调函数，即监听到对象属性值变化时执行的函数。 </li><li>deep: 布尔值。是否深度监听。一般可以监听到数组值的变化，但不能监听到对象属性值的变化。</li><li>immediate: 布尔值，是否以初始值作为新值执行<code>handler</code>的函数，老值则会显示为<code>undefined</code></li></ul></li></ul></li></ul><p><code>deep</code>是用来监听对象属性的变化，即：</p><pre class=" language-ts"><code class="language-ts"><span class="token keyword">var</span> vm <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Vue</span><span class="token punctuation">(</span><span class="token punctuation">{</span>  data<span class="token punctuation">:</span> <span class="token punctuation">{</span>    b<span class="token punctuation">:</span> <span class="token string">'xx'</span><span class="token punctuation">,</span>    c<span class="token punctuation">:</span> <span class="token string">'xx'</span><span class="token punctuation">,</span>    obj<span class="token punctuation">:</span> <span class="token punctuation">{</span>        a<span class="token punctuation">:</span> <span class="token string">'xx'</span>    <span class="token punctuation">}</span>  <span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre><p>上面<code>obj</code>对象的<code>a</code>属性，需要添加<code>deep</code>来监听</p><h5 id="1-普通的watch"><a href="#1-普通的watch" class="headerlink" title="1. 普通的watch"></a>1. 普通的<code>watch</code></h5><pre class=" language-ts"><code class="language-ts"><span class="token function">data</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>    <span class="token keyword">return</span> <span class="token punctuation">{</span>        demo<span class="token punctuation">:</span> <span class="token number">0</span>        <span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">,</span>watch<span class="token punctuation">:</span> <span class="token punctuation">{</span>    <span class="token function">demo</span><span class="token punctuation">(</span>newValue<span class="token punctuation">,</span> oldValue<span class="token punctuation">)</span> <span class="token punctuation">{</span>        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>newValue<span class="token punctuation">)</span>    <span class="token punctuation">}</span><span class="token punctuation">}</span></code></pre><h5 id="2-数组的watch"><a href="#2-数组的watch" class="headerlink" title="2. 数组的watch"></a>2. 数组的<code>watch</code></h5><pre class=" language-ts"><code class="language-ts"><span class="token function">data</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>    <span class="token keyword">return</span> <span class="token punctuation">{</span>        demo<span class="token punctuation">:</span> <span class="token keyword">new</span> <span class="token class-name">Array</span><span class="token punctuation">(</span><span class="token number">11</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">fill</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span>       <span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">,</span>watch<span class="token punctuation">:</span> <span class="token punctuation">{</span>　　demo<span class="token punctuation">:</span> <span class="token punctuation">{</span><span class="token function">　　　　handler</span><span class="token punctuation">(</span>n<span class="token punctuation">,</span> o<span class="token punctuation">)</span> <span class="token punctuation">{</span>　　　　　　<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> n<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>　　　　　　　　<span class="token keyword">if</span> <span class="token punctuation">(</span>o<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">!=</span> n<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>　　　　　　　　　　console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span>　　　　　　　　<span class="token punctuation">}</span>　　　　　　<span class="token punctuation">}</span>　　　　<span class="token punctuation">}</span><span class="token punctuation">,</span>　　　　deep<span class="token punctuation">:</span> <span class="token keyword">true</span>　　<span class="token punctuation">}</span><span class="token punctuation">}</span></code></pre><h5 id="3-对象的watch"><a href="#3-对象的watch" class="headerlink" title="3. 对象的watch"></a>3. 对象的<code>watch</code></h5><p>只要bet中的属性发生变化（可被监测到的），便会执行handler函数</p><pre class=" language-ts"><code class="language-ts"><span class="token function">data</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>　　<span class="token keyword">return</span> <span class="token punctuation">{</span>　　　　dog<span class="token punctuation">:</span> <span class="token punctuation">{</span>　　　　　　name<span class="token punctuation">:</span> <span class="token string">'bob'</span><span class="token punctuation">,</span>　　　　　　age<span class="token punctuation">:</span> <span class="token number">13</span>　　　　<span class="token punctuation">}</span>       <span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">,</span>watch<span class="token punctuation">:</span> <span class="token punctuation">{</span>　　dog<span class="token punctuation">:</span> <span class="token punctuation">{</span><span class="token function">　　　　handler</span><span class="token punctuation">(</span>n<span class="token punctuation">,</span> o<span class="token punctuation">)</span> <span class="token punctuation">{</span>　　　　　　console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span>　　　　<span class="token punctuation">}</span><span class="token punctuation">,</span>　　　　deep<span class="token punctuation">:</span> <span class="token keyword">true</span>　　<span class="token punctuation">}</span><span class="token punctuation">}</span> </code></pre><h5 id="4-对象具体属性的watch"><a href="#4-对象具体属性的watch" class="headerlink" title="4. 对象具体属性的watch"></a>4. 对象具体属性的<code>watch</code></h5><p>如果想监测具体的属性变化，如<code>age</code>变化时，才执行handler函数，则可以利用计算属性computed做中间层。</p><pre class=" language-ts"><code class="language-ts"><span class="token function">data</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>　　<span class="token keyword">return</span> <span class="token punctuation">{</span>　　　  dog<span class="token punctuation">:</span> <span class="token punctuation">{</span>　　　　　　name<span class="token punctuation">:</span> <span class="token string">'bob'</span><span class="token punctuation">,</span>　　　　　　age<span class="token punctuation">:</span> <span class="token number">13</span>　　　　<span class="token punctuation">}</span>       <span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">,</span>computed<span class="token punctuation">:</span> <span class="token punctuation">{</span>　　age<span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>　　　　<span class="token keyword">return</span> <span class="token keyword">this</span> <span class="token punctuation">.</span>dog<span class="token punctuation">.</span>age　　<span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">,</span>watch<span class="token punctuation">:</span> <span class="token punctuation">{</span><span class="token function">　　age</span><span class="token punctuation">(</span>n<span class="token punctuation">,</span> o<span class="token punctuation">)</span> <span class="token punctuation">{</span>　　　　console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span> 　　　　    　　<span class="token punctuation">}</span><span class="token punctuation">}</span></code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> vue </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> vue </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>vue computed概念深度理解</title>
+      <link href="/2019/01/22/vue/computed-gai-nian-shen-du-li-jie/"/>
+      <url>/2019/01/22/vue/computed-gai-nian-shen-du-li-jie/</url>
+      
+        <content type="html"><![CDATA[<h1 id="1-vue-computed概念深度理解"><a href="#1-vue-computed概念深度理解" class="headerlink" title="1.vue computed概念深度理解"></a>1.vue computed概念深度理解</h1><h2 id="1-1-关于-computed-概念理解"><a href="#1-1-关于-computed-概念理解" class="headerlink" title="1.1 关于 computed 概念理解"></a>1.1 关于 <code>computed</code> 概念理解</h2><h3 id="1-1-1"><a href="#1-1-1" class="headerlink" title="1.1.1"></a>1.1.1</h3><h3 id="1-1-2"><a href="#1-1-2" class="headerlink" title="1.1.2"></a>1.1.2</h3><p>官方文档解释为 ==<strong>计算属性</strong>== ，其实解释为 <strong>==属性的计算==</strong> 或许更明显些，<br>是在这个函数中对 ==<strong>属性</strong>== 进行相关的计算，然后供别的地方使用。它里面的属性是绑定在vue实例中的属性，可以通过 <code>this.属性名</code> 进行访问。</p><p>关于属性的计算有两种写法：</p><pre class=" language-ts"><code class="language-ts"><span class="token function">data</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>    <span class="token keyword">return</span> <span class="token punctuation">{</span>        deep<span class="token punctuation">:</span> <span class="token number">1</span>    <span class="token punctuation">}</span><span class="token punctuation">}</span></code></pre><blockquote><p>第一种</p></blockquote><pre class=" language-ts"><code class="language-ts"><span class="token function">computed</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>    demoProp<span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>        <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>deep<span class="token operator">++</span>    <span class="token punctuation">}</span><span class="token punctuation">}</span></code></pre><blockquote><p>第二种</p></blockquote><pre class=" language-ts"><code class="language-ts"><span class="token function">computed</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>    demoProp<span class="token punctuation">:</span> <span class="token punctuation">{</span>        <span class="token keyword">get</span><span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>            <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>deep<span class="token operator">++</span>        <span class="token punctuation">}</span>    <span class="token punctuation">}</span><span class="token punctuation">}</span></code></pre><p>调用</p><pre class=" language-ts"><code class="language-ts"><span class="token function">creat</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>    <span class="token keyword">this</span><span class="token punctuation">.</span>demoProp<span class="token punctuation">;</span><span class="token punctuation">}</span></code></pre><p>这里直接用 <code>this.demoProp</code> 即可访问到 <code>computed</code> 里面的 <code>demoProp</code> 属性。</p><h2 id="1-2-性能相关"><a href="#1-2-性能相关" class="headerlink" title="1.2 性能相关"></a>1.2 性能相关</h2><p><code>computed</code> 中是计算属性，是属性，而 <code>metholds</code> 中的是方法。两种方式的最终结果是完全相同的。  </p><p> 不同的是 <strong>计算属性是基于它们的依赖进行缓存的</strong>  </p><p> 计算属性只有它相关的依赖（变量）发生改变时才重新求值。这就意味着只要 变量还没有发生改变，多次访问属性 计算属性会立即返回之前的计算结果，而不必再次执行函数。  </p><p>例子：</p><ol><li>在 <code>computed</code> 中定义一个 <code>comNow</code> 的属性，</li></ol><pre class=" language-ts"><code class="language-ts">computed<span class="token punctuation">:</span> <span class="token punctuation">{</span>    comNow<span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>        <span class="token keyword">return</span> Data<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span>    <span class="token punctuation">}</span><span class="token punctuation">}</span></code></pre><ol start="2"><li>在 <code>metholds</code> 中定义一个 <code>metNow</code> 的方法</li></ol><pre class=" language-js"><code class="language-js">metholds<span class="token punctuation">:</span> <span class="token punctuation">{</span>    <span class="token function">metNow</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>        <span class="token keyword">return</span> Data<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token punctuation">}</span><span class="token punctuation">}</span></code></pre><p>以上返回的都是其被调用的时间，  </p><ol start="3"><li>在生命周期 <code>creat</code> 中进行调用</li></ol><pre class=" language-js"><code class="language-js"><span class="token function">creat</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">getTime</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token keyword">let</span> self <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">;</span>    <span class="token keyword">function</span> <span class="token function">getTime</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>        window<span class="token punctuation">.</span><span class="token function">setInterval</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>            console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"comNow:"</span><span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>comNow<span class="token punctuation">,</span> <span class="token string">"metNow:"</span><span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">metNow</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>        <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">)</span>    <span class="token punctuation">}</span><span class="token punctuation">}</span></code></pre><p>通过在 <code>getTime</code> 函数中定时打印出各自的返回值看是否变化。</p><p>结果：</p><pre class=" language-js"><code class="language-js"><span class="token keyword">this</span><span class="token punctuation">.</span>comNow <span class="token number">1528440256480</span> <span class="token keyword">this</span><span class="token punctuation">.</span>metNow <span class="token number">1528440258479</span><span class="token keyword">this</span><span class="token punctuation">.</span>comNow <span class="token number">1528440256480</span> <span class="token keyword">this</span><span class="token punctuation">.</span>metNow <span class="token number">1528440259478</span><span class="token keyword">this</span><span class="token punctuation">.</span>comNow <span class="token number">1528440256480</span> <span class="token keyword">this</span><span class="token punctuation">.</span>metNow <span class="token number">15284402</span> <span class="token number">60479</span><span class="token keyword">this</span><span class="token punctuation">.</span>comNow <span class="token number">1528440256480</span> <span class="token keyword">this</span><span class="token punctuation">.</span>metNow <span class="token number">1528440261479</span><span class="token keyword">this</span><span class="token punctuation">.</span>comNow <span class="token number">1528440256480</span> <span class="token keyword">this</span><span class="token punctuation">.</span>metNow <span class="token number">1528440262478</span><span class="token keyword">this</span><span class="token punctuation">.</span>comNow <span class="token number">1528440256480</span> <span class="token keyword">this</span><span class="token punctuation">.</span>metNow <span class="token number">1528440263479</span></code></pre><p>由上结果可以看出：<br>在 <code>computed</code> 中的属性 <code>comNow</code> 不变化，说明它不会重新被获取而是从缓存中直接读取的。<br>而 <code>metholds</code> 中的 <code>metNow</code> 一直在变化，说明其在每次被调用的时候都会重新进行计算，每当触发重新渲染时，调用方法将总会再次执行函数。</p><blockquote><p>我们为什么需要缓存？假设我们有一个性能开销比较大的计算属性 A，它需要遍历一个巨大的数组并做大量的计算。然后我们可能有其他的计算属性依赖于 A 。如果没有缓存，我们将不可避免的多次执行 A 的 getter！如果你不希望有缓存，请用方法来替代。</p></blockquote><p>总结： == <code>computed</code> 依赖缓存，而 <code>metholds</code> 却不是。==</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> vue </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>vue生命周期</title>
+      <link href="/2019/01/22/vue/vue-sheng-ming-zhou-qi/"/>
+      <url>/2019/01/22/vue/vue-sheng-ming-zhou-qi/</url>
+      
+        <content type="html"><![CDATA[<pre><code>beforeCreate</code></pre><ul><li>这一步之前当前组件对应对象会被实例化(new vue)，但是不传入数据不会进行创建组件。</li><li>组件没有被创建所以它的<code>data</code>为<code>undefined</code></li></ul><pre><code>created</code></pre><ul><li>往实例化的对象传入数据创建组件，组件创建完成</li><li>组件中已传入数据，并且创建成了完整的组件</li></ul><pre><code>beforeMount</code></pre><ul><li>组件虽然被创建完成了，但是没有放在<code>dom</code>元素上，所以不显示</li></ul><pre><code>mounted</code></pre><p>组件被放在<code>dom</code>元素上并且已渲染完成。</p><pre><code>beforeUpdate</code></pre><p>组件被更新之前</p><pre><code>updated</code></pre><p>组件被更新之后</p><pre><code>beforeDestroy</code></pre><p>组件销毁之前，很多数据都还存在，<code>dom</code>元素上还有它。</p><pre><code>destroyed</code></pre><p>组件销毁之后，在<code>dom</code>上移除了此组件并且此组件已完全销毁，如果要用只能再次重新创建。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> vue </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>踩坑指南2标题</title>
+      <link href="/2019/01/22/angular/cai-keng-zhi-nan/cai-keng-zhi-nan-2/"/>
+      <url>/2019/01/22/angular/cai-keng-zhi-nan/cai-keng-zhi-nan-2/</url>
+      
+        <content type="html"><![CDATA[<p>踩坑指南内容2</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> angular/踩坑指南 </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>踩坑指南标题</title>
+      <link href="/2019/01/22/angular/cai-keng-zhi-nan/cai-keng-zhi-nan/"/>
+      <url>/2019/01/22/angular/cai-keng-zhi-nan/cai-keng-zhi-nan/</url>
+      
+        <content type="html"><![CDATA[<p>踩坑指南内容</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> angular/踩坑指南 </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>方法介绍</title>
+      <link href="/2019/01/22/angular/fang-fa-jie-shao/fang-fa-jie-shao-1/"/>
+      <url>/2019/01/22/angular/fang-fa-jie-shao/fang-fa-jie-shao-1/</url>
+      
+        <content type="html"><![CDATA[<p>方法介绍</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> angular/方法介绍 </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>框架剖析标题</title>
+      <link href="/2019/01/22/angular/kuang-jia-yuan-li/kuang-jia-pou-xi/pou-xi/"/>
+      <url>/2019/01/22/angular/kuang-jia-yuan-li/kuang-jia-pou-xi/pou-xi/</url>
+      
+        <content type="html"><![CDATA[<p>框架剖析内容</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> angular/框架原理/框架剖析 </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>框架示例标题</title>
+      <link href="/2019/01/22/angular/kuang-jia-yuan-li/kuang-jia-shi-li/shi-li/"/>
+      <url>/2019/01/22/angular/kuang-jia-yuan-li/kuang-jia-shi-li/shi-li/</url>
+      
+        <content type="html"><![CDATA[<p>框架示例内容</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> angular/框架原理/框架示例 </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+  
+  
+</search>
