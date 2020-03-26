@@ -1,0 +1,22 @@
+<!--
+ * @file: 总分类
+ * @author: linkun.he
+ * @Date: 2020-02-03 10:20:52
+ -->
+ 
+
+<div class="page-wrap">
+  <div class="left-wrap">
+    <%- partial('_widget/menu') %>
+  </div>
+  <div class="right-wrap">
+    <main class="content">
+      <%- partial('_widget/category-cloud') %>
+
+        <% if (site.categories && site.categories.length > 0) { %>
+          <%- partial('_widget/category-radar') %>
+            <% } %>
+    </main>
+
+  </div>
+</div>

@@ -1,0 +1,64 @@
+<!--
+ * @file: 
+ * @author: linkun.he
+ * @Date: 2020-02-03 10:20:52
+ -->
+<style>
+  .left-wrap, 
+  .right-wrap,
+  .header {
+    background-image: url('/medias/body-bg.png') !important;
+  }
+  .left-wrap ul{
+    padding-left: 0;
+  }
+  [data-aos^=fade][data-aos^=fade] {
+    opacity: 1;
+  }
+</style>
+<% if (theme.verifyPassword.enable) { %>
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '<%- page.password %>';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('<%- theme.verifyPassword.promptMessage %>')).toString(CryptoJS.enc.Hex)) {
+                alert('<%- theme.verifyPassword.errorMessage %>');
+                location.href = '<%- url_for("/")  %>';
+            }
+        }
+    })();
+</script>
+<% } %>
+
+<div class="page-wrap">
+    <div class="left-wrap">
+      <%- partial('_widget/menu') %>
+    </div>
+    <div class="right-wrap">
+
+    <%
+        var isTocEnable = theme.toc && theme.toc.enable;
+        var containerClass = isTocEnable ? 'post-container' : 'container';
+    %>
+
+    <main class="<%- containerClass %> content" style="margin-top: 62px;">
+
+        <% if (isTocEnable) { %>
+        <%- partial('_partial/post-detail-toc.ejs') %>
+        <% } else { %>
+        <%- partial('_partial/post-detail.ejs') %>
+        <% } %>
+        
+    </main>
+  </div>
+</div>
+
+<% if (theme.mathjax.enable && page.mathjax) { %>
+<script src="<%- theme.mathjax.cdn %>"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
+<% } %>

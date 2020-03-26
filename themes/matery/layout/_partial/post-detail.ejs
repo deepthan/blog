@@ -1,0 +1,158 @@
+<!-- 文章内容详情 -->
+<style>
+.post-title{
+  width: 100%;
+  font-size: 28px;
+  text-align: center;
+  font-weight: bold;
+}
+.post-tips{
+  position: absolute;
+  right: 16px;
+  top: 6px;
+  color: #aaa;
+  font-size: 12px;
+  font-family: cursive;
+}
+.post-tips a{
+  color: #aaa;
+  font-size:12px;
+}
+#artDetail .post-info{
+  text-align: center;
+  margin-top: 5px;
+  font-size: 13px;
+}
+#artDetail .post-info,
+#artDetail .post-info .post-category{
+  color: #777;
+}
+#artDetail .post-info .post-category:hover{
+  text-decoration: none;
+}
+.hr-wrap{
+  padding: 0 50px;
+}
+</style>
+
+<div id="artDetail">
+    <div class="card" >
+        <div class="card-content article-info">
+            <div class="post-title">
+                <%- page.title %>
+            </div>
+
+            <ul class="post-tips">
+              <li>
+                <i class="fa fa-file-word-o fa-fw"></i>总字数：<%= wordcount(page.content) %>
+              </li>
+              <li>
+                <% if (theme.wordCount.min2read) { %>
+                  <i class="fa fa-clock-o fa-fw"></i>阅读时间：<%= min2read(page.content) %><%= __('分钟') %>
+                <% } %>
+              </li>
+              <li>
+                <i class="fa fa-eye fa-fw"></i>阅读次数：<span id="busuanzi_value_page_pv"></span>
+              </li>
+            </ul>
+
+            <div class="post-info">
+                <% page.categories.forEach(category => { %>
+                  <a href="<%- url_for(category.path) %>" class="post-category" target="_blank">
+                      <%- category.name %>
+                  </a>
+                <% }); %>
+                  |
+                <%- date(page.date, 'YYYY-MM-DD') %>
+               
+            </div>
+        </div>
+        <!-- <div class="hr-wrap">
+          <hr class="clearfix">
+        </div> -->
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <%- page.content %>
+            </div>
+            <hr/>
+
+            <% if (theme.reward && theme.reward.enable) { %>
+            <%- partial('_partial/reward') %>
+            <% } %>
+
+            <%- partial('_partial/share') %>
+
+            <div class="reprint">
+                <p>
+                    <span class="reprint-tip">
+                        <i class="fa fa-exclamation-circle"></i>&nbsp;&nbsp;<%= __('reprint') %>:
+                    </span>
+                    <a href="<%- config.url %>" class="b-link-green"><%- config.title %></a>
+                    <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
+                    <a href="<%- url_for(page.path) %>" class="b-link-green"><%= page.title %></a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <% if (theme.gitalk && theme.gitalk.enable) { %>
+        <%- partial('_partial/gitalk') %>
+    <% } %>
+
+    <% if (theme.gitment.enable) { %>
+        <%- partial('_partial/gitment') %>
+    <% } %>
+
+    <% if (theme.disqus.enable) { %>
+        <%- partial('_partial/disqus') %>
+    <% } %>
+
+    <% if (theme.livere && theme.livere.enable) { %>
+    <%- partial('_partial/livere') %>
+    <% } %>
+
+    <% if (theme.valine && theme.valine.enable) { %>
+        <%- partial('_partial/valine') %>
+    <% } %>
+
+    <%- partial('_partial/prev-next') %>
+</div>
+
+<% if (theme.copyright.enable) { %>
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('<%- theme.copyright.minCharNumber %>')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '<%- __("from")  %>: <%- config.title %><br />'
+            + '<%- __("author")  %>: <%- config.author %><br />'
+            + '<%- __("link")  %>: <a href="' + url + '">' + url + '</a><br />'
+            + '<%- theme.copyright.description %>';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+<% } %>

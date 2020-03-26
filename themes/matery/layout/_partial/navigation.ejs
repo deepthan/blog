@@ -1,0 +1,59 @@
+<!--
+ * @file: 
+ * @author: linkun.he
+ * @Date: 2020-01-19 08:43:36
+ -->
+<%
+    var menuMap = new Map();
+    menuMap.set("Index", "首页");
+    menuMap.set("Categories", "分类");
+    menuMap.set("Archives", "归档");
+    menuMap.set("About", "关于");
+    menuMap.set("Friends", "友情链接");
+%>
+
+<ul class="nav-right">
+    <% Object.keys(theme.menu).forEach(function(key) { %>
+    <li class="nav-item-wrap">
+        <a href="<%- theme.menu[key].url %>" class="nav-item">
+            <% if (theme.menu[key].icon && theme.menu[key].icon.length > 0) { %>
+            <i class="fa <%- theme.menu[key].icon %>"></i>
+            <% } %>
+            <span><%- (config.language === 'zh-CN' && menuMap.has(key)) ? menuMap.get(key) : key %></span>
+        </a>
+    </li>
+    <% }); %>
+    <li class="search">
+        <a id="toggleSearch" class="nav-item">
+            <i id="searchIcon" class="mdi-action-search" title="<%= __('search') %>"></i>
+        </a>
+    </li>
+
+</ul>
+
+<style>
+  .nav-right{
+    height: 64px;
+    line-height: 64px;
+    margin: 0;
+    overflow: hidden;
+  }
+  .nav-right li {
+    display: inline-block;
+    margin-right: 20px;
+    height: 64px;
+    margin-top: -25px;
+    line-height: 64px;
+    position: relative;
+  }
+  .nav-right .nav-item{
+    color: #fff;
+  }
+  .search .nav-item{
+    position: absolute;
+    position: absolute;
+    top: 27px;
+    left: -3px;
+
+  }
+</style>
