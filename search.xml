@@ -67,25 +67,6 @@
     
     
     <entry>
-      <title>踩坑指南2标题</title>
-      <link href="/2019/01/22/angular/cai-keng-zhi-nan/cai-keng-zhi-nan-2/"/>
-      <url>/2019/01/22/angular/cai-keng-zhi-nan/cai-keng-zhi-nan-2/</url>
-      
-        <content type="html"><![CDATA[<p>踩坑指南内容2</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> angular/踩坑指南 </category>
-          
-      </categories>
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>踩坑指南标题</title>
       <link href="/2019/01/22/angular/cai-keng-zhi-nan/cai-keng-zhi-nan/"/>
       <url>/2019/01/22/angular/cai-keng-zhi-nan/cai-keng-zhi-nan/</url>
@@ -115,6 +96,25 @@
       <categories>
           
           <category> angular/方法介绍 </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>踩坑指南2标题</title>
+      <link href="/2019/01/22/angular/cai-keng-zhi-nan/cai-keng-zhi-nan-2/"/>
+      <url>/2019/01/22/angular/cai-keng-zhi-nan/cai-keng-zhi-nan-2/</url>
+      
+        <content type="html"><![CDATA[<p>踩坑指南内容2</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> angular/踩坑指南 </category>
           
       </categories>
       
