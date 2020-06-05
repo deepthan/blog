@@ -4,7 +4,7 @@
     </div>
 </div>
 
-<script type="text/javascript" src="/libs/echarts/echarts.min.js"></script>
+<script type="text/javascript" src="<%- theme.jsDelivr.url %><%- url_for(theme.libs.js.echarts) %>"></script>
 <script type="text/javascript">
     let myChart = echarts.init(document.getElementById('post-calendar'));
 
@@ -13,8 +13,8 @@
     var titleText = (config.language && config.language.indexOf('zh') >= 0) ? '文章日历' : 'Post Calendar';
 
     // calculate range.
-    var startDate = moment().subtract(2, 'years');
-    var endDate = moment().subtract(1, 'years');
+    var startDate = moment().subtract(1, 'years');
+    var endDate = moment();
     var rangeArr = '["' + startDate.format('YYYY-MM-DD') + '", "' + endDate.format('YYYY-MM-DD') + '"]';
 
     // post and count map.
@@ -64,7 +64,7 @@
             calculable: true,
             inRange: {
                 symbol: 'rect',
-                color: ['#ebedf0', '#c6e48b', '#7bc96f', '#239a3b', '#000']
+                color: ['#ebedf0', '#c6e48b', '#7bc96f', '#239a3b', '#196127']
             },
             itemWidth: 12,
             itemHeight: 12,
@@ -80,6 +80,7 @@
                 show: false
             },
             itemStyle: {
+                color: '#196127',
                 borderColor: '#fff',
                 borderWidth: 2
             },

@@ -8,9 +8,9 @@
   "scripts": {
     "start": "hexo s",
     "new": "hexo new",
-    "g": "hexo generate",
-    "d": "hexo deploy",
-    "c": "hexo clean"
+    "generate": "hexo generate",
+    "deploy": "hexo deploy",
+    "clean": "hexo clean"
   },
   "dependencies": {
     "hexo": "^4.2.0",
