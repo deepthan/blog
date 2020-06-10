@@ -80,7 +80,7 @@ theme: matery
 deploy:
   type: git
   repository: git@github.com:deepthan/hexo.git
-  branch: master
+  branch: gh-pages
 
 prism_plugin:
   mode: 'preprocess'    # realtime/preprocess
