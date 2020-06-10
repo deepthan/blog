@@ -5,9 +5,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="框架示例标题, 前端博客网站">
-    <meta name="description" content="框架示例内容
-">
+    <meta name="keywords" content="分类: angular/踩坑指南222, 前端博客网站">
+    <meta name="description" content="分类: angular/踩坑指南222 | 莫莫莫">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -15,7 +14,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>框架示例标题 | 莫莫莫</title>
+    <title>分类: angular/踩坑指南222 | 莫莫莫</title>
     <link rel="icon" type="image/jpeg" href="/favicon.jpg">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -248,29 +247,24 @@
     float: right;
   }
 </style>
-<!--
- * @file: 
- * @author: linkun.he
- * @Date: 2020-02-03 10:20:52
- -->
 <style>
   .left-wrap, 
   .right-wrap,
+  .menu-node,
   .header {
-    background-image: url('/medias/body-bg.png') !important;
-  }
-  .left-wrap ul{
-    padding-left: 0;
-  }
-  [data-aos^=fade][data-aos^=fade] {
-    opacity: 1;
+    background-image: url('../../medias/body-bg.png') !important;
   }
 </style>
 
+<script>
+  function openArticle(url){
+    window.open('/'+url);
+  }
+</script>
 
 <div class="page-wrap">
-    <div class="left-wrap">
-      <!--
+  <div class="left-wrap">
+    <!--
  * @file: 
  * @author: linkun.he
  * @Date: 2020-01-19 08:43:36
@@ -726,552 +720,136 @@ window.onload = function(){
   }
 </style>
 
-    </div>
-    <div class="right-wrap">
+  </div>
+  <div class="right-wrap">
+  <main class="content">
 
-    
+    <!--
+ * @file: 
+ * @author: linkun.he
+ * @Date: 2020-02-03 10:20:52
+ -->
 
-    <main class="post-container content" style="margin-top: 62px;">
 
-        
-        <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
-<style>
-    #articleContent h1,
-    #articleContent h2,
-    #articleContent h3,
-    #articleContent h4,
-    #articleContent h5,
-    #articleContent h6 {
-        padding-top: 76px;
-        margin-top: -76px;
-    }
-
-    #articleContent h1 {
-        line-height: 3.5rem;
-    }
-
-    #articleContent h2 {
-        line-height: 3.2rem;
-    }
-
-    #articleContent h3 {
-        line-height: 2.8rem;
-    }
-
-    #articleContent h4 {
-        line-height: 2.5rem;
-    }
-
-    #articleContent h5 {
-        line-height: 2.2rem;
-    }
-
-    #articleContent h6 {
-        line-height: 1.9rem;
-    }
-
-    #articleContent :focus {
-        outline: none;
-    }
-
-    .toc-fixed {
-        position: fixed;
-        top: 64px;
-    }
-
-    .toc-widget {
-        padding-left: 20px;
-    }
-
-    .toc-widget .toc-title {
-        margin: 35px 0 15px 0;
-        padding-left: 17px;
-        font-size: 1.5rem;
-        font-weight: bold;
-        line-height: 1.5rem;
-    }
-
-    .toc-widget ol {
-        padding: 0;
-        list-style: none;
-    }
-
-    #toc-content ol {
-        padding-left: 10px;
-    }
-
-    #toc-content ol li {
-        padding-left: 10px;
-    }
-
-    #toc-content .toc-link:hover {
-        color: #42b983;
-        font-weight: 700;
-        text-decoration: underline;
-    }
-
-    #toc-content .toc-link::before {
-        background-color: transparent;
-        max-height: 25px;
-    }
-
-    #toc-content .is-active-link {
-        color: #42b983;
-    }
-
-    #toc-content .is-active-link::before {
-        background-color: #42b983;
-    }
-</style>
-<div class="row">
-    <div class="col s12 m12 l9">
-        <!-- 文章内容详情 -->
-<style>
-.post-title{
-  width: 100%;
-  font-size: 28px;
-  text-align: center;
-  font-weight: bold;
-}
-.post-tips{
-  position: absolute;
-  right: 16px;
-  top: 6px;
-  color: #aaa;
-  font-size: 12px;
-  font-family: cursive;
-}
-.post-tips a{
-  color: #aaa;
-  font-size:12px;
-}
-#artDetail .post-info{
-  text-align: center;
-  margin-top: 5px;
-  font-size: 13px;
-}
-#artDetail .post-info,
-#artDetail .post-info .post-category{
-  color: #777;
-}
-#artDetail .post-info .post-category:hover{
-  text-decoration: none;
-}
-.hr-wrap{
-  padding: 0 50px;
-}
-</style>
-
-<div id="artDetail">
-    <div class="card" >
-        <div class="card-content article-info">
-            <div class="post-title">
-                框架示例标题
-            </div>
-
-            <ul class="post-tips">
-              <li>
-                <i class="fa fa-file-word-o fa-fw"></i>总字数：6
-              </li>
-              <li>
-                
-                  <i class="fa fa-clock-o fa-fw"></i>阅读时间：1分钟
-                
-              </li>
-              <li>
-                <i class="fa fa-eye fa-fw"></i>阅读次数：<span id="busuanzi_value_page_pv"></span>
-              </li>
-            </ul>
-
-            <div class="post-info">
-                
-                  <a href="/categories/angular-%E6%A1%86%E6%9E%B6%E5%8E%9F%E7%90%86-%E6%A1%86%E6%9E%B6%E7%A4%BA%E4%BE%8B/" class="post-category" target="_blank">
-                      angular/框架原理/框架示例
-                  </a>
-                
-                  |
-                2019-01-22
-               
-            </div>
+  <div id="category-cloud" class="container chip-container">
+    <div class="">
+      <div class="card-content">
+        <div class="tag-title center-align">
+          文章分类
         </div>
-        <!-- <div class="hr-wrap">
-          <hr class="clearfix">
-        </div> -->
-        <div class="card-content article-card-content">
-            <div id="articleContent">
-                <p>框架示例内容</p>
-
-            </div>
-            <hr/>
-
+        <div class="tag-chips">
+          
             
-            <style>
-    #reward {
-        margin: 20px 0;
-        text-align: center;
-    }
-
-    #reward .reward-link {
-        font-size: 1.88rem;
-    }
-
-    #reward .btn-floating:hover {
-        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
-    }
-
-    #rewardModal {
-        width: 320px;
-        height: 350px;
-    }
-
-    #rewardModal .reward-title {
-        margin: 15px auto;
-        padding-bottom: 5px;
-    }
-
-    #rewardModal .modal-content {
-        padding: 10px;
-    }
-
-    #rewardModal .close {
-        position: absolute;
-        right: 15px;
-        top: 15px;
-        color: rgba(0, 0, 0, 0.5);
-        font-size: 1.3rem;
-        line-height: 20px;
-        cursor: pointer;
-    }
-
-    #rewardModal .reward-tabs {
-        margin: 0 auto;
-        width: 210px;
-    }
-
-    .reward-tabs .tabs {
-        height: 38px;
-        margin: 10px auto;
-        padding-left: 0;
-    }
-
-    .reward-tabs .tabs .tab {
-        height: 38px;
-        line-height: 38px;
-    }
-
-    .reward-tabs .tab a {
-        color: #fff;
-        background-color: #ccc;
-    }
-
-    .reward-tabs .tab a:hover {
-        color: #fff;
-    }
-
-    .reward-tabs .wechat-tab .active {
-        color: #fff;
-        background-color: #22AB38;
-    }
-
-    .reward-tabs .alipay-tab .active {
-        color: #fff;
-        background-color: #019FE8;
-    }
-
-    .reward-tabs .reward-img {
-        width: 210px;
-        height: 210px;
-    }
-</style>
-
-<div id="reward">
-    <a class="reward-link btn-floating btn-large waves-effect waves-light red">赏</a>
-
-    <!-- Modal Structure -->
-    <div id="rewardModal" class="modal">
-        <div class="modal-content">
-            <a class="close"><i class="fa fa-close"></i></a>
-            <h4 class="reward-title">你的赏识是我前进的动力</h4>
-            <div class="reward-content">
-                <div class="reward-tabs">
-                    <ul class="tabs">
-                        <li class="tab wechat-tab waves-effect waves-light"><a class="active" href="#wechat">微信</a></li>
-                        <li class="tab alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
-                    </ul>
-                    <div id="wechat">
-                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
-                    </div>
-                    <div id="alipay">
-                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<script>
-    $(function () {
-        $('#reward .reward-link').on('click', function () {
-            $('#rewardModal').openModal();
-        });
-
-        $('#rewardModal .close').on('click', function () {
-            $('#rewardModal').closeModal();
-        });
-    });
-</script>
-            
-
-            <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
-
-<div id="article-share">
-    
-    <div class="social-share" data-disabled="qzone" data-wechat-qrcode-helper="<p>微信里点“发现”->“扫一扫”二维码便可查看分享。</p>"></div>
-    
-</div>
-
-<script src="/libs/share/js/social-share.min.js"></script>
-
-            <div class="reprint">
-                <p>
-                    <span class="reprint-tip">
-                        <i class="fa fa-exclamation-circle"></i>&nbsp;&nbsp;转载请注明:
+              
+                <a href="/categories/vue/" title="vue: 3">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            style="background-color: #F9EBEA;">vue
+                        <span class="tag-length">3</span>
                     </span>
-                    <a href="https://deepthan.github.io" class="b-link-green">莫莫莫</a>
-                    <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/2019/01/22/angular/kuang-jia-yuan-li/kuang-jia-shi-li/shi-li/" class="b-link-green">框架示例标题</a>
-                </p>
-            </div>
+                </a>
+                
+              
+                <a href="/categories/angular-%E8%B8%A9%E5%9D%91%E6%8C%87%E5%8D%97222/" title="angular/踩坑指南222: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-active "
+                            style="background-color: #F5EEF8;">angular/踩坑指南222
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+              
+                <a href="/categories/angular-%E6%96%B9%E6%B3%95%E4%BB%8B%E7%BB%8D/" title="angular/方法介绍: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            style="background-color: #D5F5E3;">angular/方法介绍
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+              
+                <a href="/categories/angular-%E8%B8%A9%E5%9D%91%E6%8C%87%E5%8D%97/" title="angular/踩坑指南: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            style="background-color: #E8F8F5;">angular/踩坑指南
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+              
+                <a href="/categories/angular-%E6%A1%86%E6%9E%B6%E5%8E%9F%E7%90%86-%E6%A1%86%E6%9E%B6%E5%89%96%E6%9E%90/" title="angular/框架原理/框架剖析: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            style="background-color: #FEF9E7;">angular/框架原理/框架剖析
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+              
+                <a href="/categories/angular-%E6%A1%86%E6%9E%B6%E5%8E%9F%E7%90%86-%E6%A1%86%E6%9E%B6%E7%A4%BA%E4%BE%8B/" title="angular/框架原理/框架示例: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            style="background-color: #F8F9F9;">angular/框架原理/框架示例
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                  
         </div>
+      </div>
     </div>
+  </div>
 
-    
-        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
-<link rel="stylesheet" href="/css/my-gitalk.css">
-<style>
-  .gitalk-card{
-    margin-top: -84px;
-  }
-</style>
+      
+        <article id="articles" class="container articles">
+          <div class="row tags-posts">
+            
+              <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
+                <div class="card" onclick="openArticle(&#34;2019/01/22/angular/cai-keng-zhi-nan/cai-keng-zhi-nan/&#34;)">
+                    <div class="card-image tag-image">
+                      
+                          
+                            <div class="title">
+                                踩坑指南标题222
+                            </div>
 
-<div class="card gitalk-card" data-aos="fade-up">
-    <div id="gitalk-container" class="card-content"></div>
-</div>
-
-<script src="/libs/gitalk/gitalk.min.js"></script>
-<script>
-    let gitalk = new Gitalk({
-        clientID: '13cc99840e1b3be7eaf1',
-        clientSecret: '3bfe0b55e32a4a2f3ce540a12d0a4d3982682d40',
-        repo: 'hexo',
-        owner: 'deepthan',
-        admin: ["deepthan"],
-        id: '2019-01-22T21-20-43',
-        distractionFreeMode: false  // Facebook-like distraction free mode
-    });
-
-    gitalk.render('gitalk-container');
-</script>
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-<style>
-  .card{
-    padding-top: 20px;
-  }
-  #prenext-posts{
-    margin-top: 124px;
-  }
-  .article{
-    position: relative;
-  }
-  .left-badge{
-    position: absolute;
-    left: 11px;
-    top: 0;
-  }
-</style>
-<article id="prenext-posts" class="prev-next articles">
-    <div class="row article-row">
-        
-        <div class="article col s12 m6" >
-            <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
-            <div class="card">
-                <a href="/2019/01/22/angular/kuang-jia-yuan-li/kuang-jia-pou-xi/pou-xi/">
-                    <div class="card-image">
-                        
-                        
-                        <div class="title">
-                            框架剖析标题
-                        </div>
-                        
+                            
                     </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary">框架剖析内容
-...</div>
+                  <div class="card-content article-content">
+                    <div class="summary">
+                      
+                            踩坑指南内容
+...
+                              
+                    </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-01-22
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fa fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/angular-%E6%A1%86%E6%9E%B6%E5%8E%9F%E7%90%86-%E6%A1%86%E6%9E%B6%E5%89%96%E6%9E%90/" class="post-category" target="_blank">
-                                    angular/框架原理/框架剖析
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6">
-            <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="fa fa-dot-circle-o"></i>
-            </div>
-            <div class="card">
-                <a href="/2019/01/22/angular/kuang-jia-yuan-li/kuang-jia-shi-li/shi-li/">
-                    <div class="card-image">
-                        
-                        
-                        <div class="title">
-                            框架示例标题
-                        </div>
-                        
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary">框架示例内容
-...</div>
-                    <div class="publish-info">
-                            <span class="publish-date">
+                      <span class="publish-date">
                                 <i class="fa fa-clock-o fa-fw icon-date"></i>2019-01-22
                             </span>
-                        <span class="publish-author">
-                            
-                            <i class="fa fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/angular-%E6%A1%86%E6%9E%B6%E5%8E%9F%E7%90%86-%E6%A1%86%E6%9E%B6%E7%A4%BA%E4%BE%8B/" class="post-category" target="_blank">
-                                    angular/框架原理/框架示例
+                      <span class="publish-author">
+                                
+                                <i class="fa fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/angular-%E8%B8%A9%E5%9D%91%E6%8C%87%E5%8D%97222/" class="post-category" target="_blank">
+                                    angular/踩坑指南222
                                 </a>
-                            
-                            
-                        </span>
+                                
+                                
+                            </span>
                     </div>
+                  </div>
+
                 </div>
-            </div>
-        </div>
-        
-    </div>
-</article>
-</div>
+              </div>
+              
+          </div>
+        </article>
+  </main>
 
+  
 
-<script>
-    $('#articleContent').on('copy', function (e) {
-        // IE8 or earlier browser is 'undefined'
-        if (typeof window.getSelection === 'undefined') return;
-
-        var selection = window.getSelection();
-        // if the selection is short let's not annoy our users.
-        if (('' + selection).length < Number.parseInt('120')) {
-            return;
-        }
-
-        // create a div outside of the visible area and fill it with the selected text.
-        var bodyElement = document.getElementsByTagName('body')[0];
-        var newdiv = document.createElement('div');
-        newdiv.style.position = 'absolute';
-        newdiv.style.left = '-99999px';
-        bodyElement.appendChild(newdiv);
-        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
-
-        // we need a <pre> tag workaround.
-        // otherwise the text inside "pre" loses all the line breaks!
-        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
-            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
-        }
-
-        var url = document.location.href;
-        newdiv.innerHTML += '<br />'
-            + '来源: 莫莫莫<br />'
-            + '作者: 莫莫莫<br />'
-            + '链接: <a href="' + url + '">' + url + '</a><br />'
-            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
-
-        selection.selectAllChildren(newdiv);
-        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
-    });
-</script>
-
-    </div>
-    <div class="col l3 hide-on-med-and-down">
-        <div class="toc-widget">
-            <div class="toc-title"><i class="fa fa-list-alt"></i>&nbsp;&nbsp;目录</div>
-            <div id="toc-content"></div>
-        </div>
-    </div>
-</div>
-
-<script src="/libs/tocbot/tocbot.min.js"></script>
-<script>
-    $(function () {
-        tocbot.init({
-            tocSelector: '#toc-content',
-            contentSelector: '#articleContent',
-            headingSelector: 'h2, h3, h4'
-        });
-
-        // modify the toc link href to support Chinese.
-        let i = 0;
-        let tocHeading = 'toc-heading-';
-        $('#toc-content a').each(function () {
-            $(this).attr('href', '#' + tocHeading + (++i));
-        });
-
-        // modify the heading title id to support Chinese.
-        i = 0;
-        $('#articleContent').children('h2, h3, h4').each(function () {
-            $(this).attr('id', tocHeading + (++i));
-        });
-
-        // Set scroll toc fixed.
-        let $tocWidget = $('.toc-widget');
-        
-        $('.right-wrap').scroll(function () {
-          
-            let scroll = $('.right-wrap').scrollTop();
-            /* add post toc fixed. */
-            if (scroll > 60) {
-                $tocWidget.addClass('toc-fixed');
-            } else {
-                $tocWidget.removeClass('toc-fixed');
-            }
-        });
-    });
-</script>
-        
-        
-    </main>
   </div>
 </div>
-
 
 <!--
  * @file: 
