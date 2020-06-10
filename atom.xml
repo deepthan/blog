@@ -100,31 +100,6 @@
   </entry>
   
   <entry>
-    <title>踩坑指南标题</title>
-    <link href="https://deepthan.github.io/2019/01/22/angular/cai-keng-zhi-nan/cai-keng-zhi-nan/"/>
-    <id>https://deepthan.github.io/2019/01/22/angular/cai-keng-zhi-nan/cai-keng-zhi-nan/</id>
-    <published>2019-01-22T13:20:43.000Z</published>
-    <updated>2020-03-26T08:20:17.300Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;踩坑指南内容&lt;/p&gt;
-
-        
-      
-    
-    </summary>
-    
-      <category term="angular/踩坑指南" scheme="https://deepthan.github.io/categories/angular-%E8%B8%A9%E5%9D%91%E6%8C%87%E5%8D%97/"/>
-    
-    
-  </entry>
-  
-  <entry>
     <title>方法介绍</title>
     <link href="https://deepthan.github.io/2019/01/22/angular/fang-fa-jie-shao/fang-fa-jie-shao-1/"/>
     <id>https://deepthan.github.io/2019/01/22/angular/fang-fa-jie-shao/fang-fa-jie-shao-1/</id>
@@ -145,6 +120,31 @@
     </summary>
     
       <category term="angular/方法介绍" scheme="https://deepthan.github.io/categories/angular-%E6%96%B9%E6%B3%95%E4%BB%8B%E7%BB%8D/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>踩坑指南标题</title>
+    <link href="https://deepthan.github.io/2019/01/22/angular/cai-keng-zhi-nan/cai-keng-zhi-nan/"/>
+    <id>https://deepthan.github.io/2019/01/22/angular/cai-keng-zhi-nan/cai-keng-zhi-nan/</id>
+    <published>2019-01-22T13:20:43.000Z</published>
+    <updated>2020-03-26T08:20:17.300Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;踩坑指南内容&lt;/p&gt;
+
+        
+      
+    
+    </summary>
+    
+      <category term="angular/踩坑指南" scheme="https://deepthan.github.io/categories/angular-%E8%B8%A9%E5%9D%91%E6%8C%87%E5%8D%97/"/>
     
     
   </entry>
