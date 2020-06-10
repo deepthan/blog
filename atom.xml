@@ -100,31 +100,6 @@
   </entry>
   
   <entry>
-    <title>踩坑指南标题222</title>
-    <link href="https://deepthan.github.io/2019/01/22/angular/cai-keng-zhi-nan/cai-keng-zhi-nan/"/>
-    <id>https://deepthan.github.io/2019/01/22/angular/cai-keng-zhi-nan/cai-keng-zhi-nan/</id>
-    <published>2019-01-22T13:20:43.000Z</published>
-    <updated>2020-06-10T10:32:08.572Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;踩坑指南内容&lt;/p&gt;
-
-        
-      
-    
-    </summary>
-    
-      <category term="angular/踩坑指南222" scheme="https://deepthan.github.io/categories/angular-%E8%B8%A9%E5%9D%91%E6%8C%87%E5%8D%97222/"/>
-    
-    
-  </entry>
-  
-  <entry>
     <title>方法介绍</title>
     <link href="https://deepthan.github.io/2019/01/22/angular/fang-fa-jie-shao/fang-fa-jie-shao-1/"/>
     <id>https://deepthan.github.io/2019/01/22/angular/fang-fa-jie-shao/fang-fa-jie-shao-1/</id>
@@ -175,11 +150,11 @@
   </entry>
   
   <entry>
-    <title>框架剖析标题</title>
-    <link href="https://deepthan.github.io/2019/01/22/angular/kuang-jia-yuan-li/kuang-jia-pou-xi/pou-xi/"/>
-    <id>https://deepthan.github.io/2019/01/22/angular/kuang-jia-yuan-li/kuang-jia-pou-xi/pou-xi/</id>
+    <title>踩坑指南标题222</title>
+    <link href="https://deepthan.github.io/2019/01/22/angular/cai-keng-zhi-nan/cai-keng-zhi-nan/"/>
+    <id>https://deepthan.github.io/2019/01/22/angular/cai-keng-zhi-nan/cai-keng-zhi-nan/</id>
     <published>2019-01-22T13:20:43.000Z</published>
-    <updated>2020-03-26T08:20:17.299Z</updated>
+    <updated>2020-06-10T10:32:08.572Z</updated>
     
     <summary type="html">
     
@@ -187,14 +162,14 @@
       
         
         
-          &lt;p&gt;框架剖析内容&lt;/p&gt;
+          &lt;p&gt;踩坑指南内容&lt;/p&gt;
 
         
       
     
     </summary>
     
-      <category term="angular/框架原理/框架剖析" scheme="https://deepthan.github.io/categories/angular-%E6%A1%86%E6%9E%B6%E5%8E%9F%E7%90%86-%E6%A1%86%E6%9E%B6%E5%89%96%E6%9E%90/"/>
+      <category term="angular/踩坑指南222" scheme="https://deepthan.github.io/categories/angular-%E8%B8%A9%E5%9D%91%E6%8C%87%E5%8D%97222/"/>
     
     
   </entry>
@@ -220,6 +195,31 @@
     </summary>
     
       <category term="angular/框架原理/框架示例" scheme="https://deepthan.github.io/categories/angular-%E6%A1%86%E6%9E%B6%E5%8E%9F%E7%90%86-%E6%A1%86%E6%9E%B6%E7%A4%BA%E4%BE%8B/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>框架剖析标题</title>
+    <link href="https://deepthan.github.io/2019/01/22/angular/kuang-jia-yuan-li/kuang-jia-pou-xi/pou-xi/"/>
+    <id>https://deepthan.github.io/2019/01/22/angular/kuang-jia-yuan-li/kuang-jia-pou-xi/pou-xi/</id>
+    <published>2019-01-22T13:20:43.000Z</published>
+    <updated>2020-03-26T08:20:17.299Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;框架剖析内容&lt;/p&gt;
+
+        
+      
+    
+    </summary>
+    
+      <category term="angular/框架原理/框架剖析" scheme="https://deepthan.github.io/categories/angular-%E6%A1%86%E6%9E%B6%E5%8E%9F%E7%90%86-%E6%A1%86%E6%9E%B6%E5%89%96%E6%9E%90/"/>
     
     
   </entry>

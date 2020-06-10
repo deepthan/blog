@@ -67,25 +67,6 @@
     
     
     <entry>
-      <title>踩坑指南标题222</title>
-      <link href="/2019/01/22/angular/cai-keng-zhi-nan/cai-keng-zhi-nan/"/>
-      <url>/2019/01/22/angular/cai-keng-zhi-nan/cai-keng-zhi-nan/</url>
-      
-        <content type="html"><![CDATA[<p>踩坑指南内容</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> angular/踩坑指南222 </category>
-          
-      </categories>
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>方法介绍</title>
       <link href="/2019/01/22/angular/fang-fa-jie-shao/fang-fa-jie-shao-1/"/>
       <url>/2019/01/22/angular/fang-fa-jie-shao/fang-fa-jie-shao-1/</url>
@@ -124,16 +105,16 @@
     
     
     <entry>
-      <title>框架剖析标题</title>
-      <link href="/2019/01/22/angular/kuang-jia-yuan-li/kuang-jia-pou-xi/pou-xi/"/>
-      <url>/2019/01/22/angular/kuang-jia-yuan-li/kuang-jia-pou-xi/pou-xi/</url>
+      <title>踩坑指南标题222</title>
+      <link href="/2019/01/22/angular/cai-keng-zhi-nan/cai-keng-zhi-nan/"/>
+      <url>/2019/01/22/angular/cai-keng-zhi-nan/cai-keng-zhi-nan/</url>
       
-        <content type="html"><![CDATA[<p>框架剖析内容</p>]]></content>
+        <content type="html"><![CDATA[<p>踩坑指南内容</p>]]></content>
       
       
       <categories>
           
-          <category> angular/框架原理/框架剖析 </category>
+          <category> angular/踩坑指南222 </category>
           
       </categories>
       
@@ -153,6 +134,25 @@
       <categories>
           
           <category> angular/框架原理/框架示例 </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>框架剖析标题</title>
+      <link href="/2019/01/22/angular/kuang-jia-yuan-li/kuang-jia-pou-xi/pou-xi/"/>
+      <url>/2019/01/22/angular/kuang-jia-yuan-li/kuang-jia-pou-xi/pou-xi/</url>
+      
+        <content type="html"><![CDATA[<p>框架剖析内容</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> angular/框架原理/框架剖析 </category>
           
       </categories>
       
